@@ -216,6 +216,17 @@ https://templatemo.com/tm-579-cyborg-gaming
     }
 
     async function loadGameContent() {
+
+      async function loadGameOverview() {
+        const response = await fetch(`https://ogregorio.github.io/handheld-database/commons/overviews/${gameKey}.overview.md`);
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch Markdown file');
+        }
+
+        return response;
+      }
+
       try {
         const response = await fetch(`https://ogregorio.github.io/handheld-database/platforms/${platformKey}/systems/${systemKey}/${gameKey}/${gameKey}.md`);
 
@@ -223,7 +234,11 @@ https://templatemo.com/tm-579-cyborg-gaming
           throw new Error('Failed to fetch Markdown file');
         }
 
-        const markdownContent = await response.text();
+        const overviewResponse = await loadGameOverview();
+        
+        const contents = await Promise.all([response.text(), overviewResponse.text()]);
+
+        const markdownContent = contents[0].replaceAll("%game_overview%", contents[1])
 
         const gameDetailsContent = document.getElementById('game-details-content');
 
