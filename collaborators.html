@@ -8,7 +8,7 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <title>Handheld Database - Awesome Games</title>
+  <title>Handheld Database - Platform Systems</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -77,13 +77,10 @@ https://templatemo.com/tm-579-cyborg-gaming
         <div class="page-content">
 
           <!-- ***** Banner Start ***** -->
-          <div class="main-banner">
-            <div class="row">
-              <div class="col-lg-7">
-                <div class="header-text">
-                  <h6>Welcome To Handheld Database</h6>
-                  <h4><em>Ranking</em> the Best (and Worst) Games!</h4>
-                </div>
+          <div class="row">
+            <div class="col-lg-7">
+              <div class="header-text">
+                <h1>Help us to always improve!</h1>
               </div>
             </div>
           </div>
@@ -94,10 +91,10 @@ https://templatemo.com/tm-579-cyborg-gaming
             <div class="row">
               <div class="col-lg-12">
                 <div class="heading-section">
-                  <h4><em>Most Popular</em> Platforms</h4>
+                  <h4><em>GitHub</em> Collaborators</h4>
                 </div>
-                <div class="row" id="platforms">
-                  <!-- Games will be dynamically inserted here -->
+                <div class="row" id="collaborators">
+                  <!-- Collaborators will be dynamically inserted here -->
                 </div>
               </div>
             </div>
@@ -132,31 +129,57 @@ https://templatemo.com/tm-579-cyborg-gaming
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      fetch('https://ogregorio.github.io/handheld-database/platforms/index.json')
+      const urlParams = new URLSearchParams(window.location.search);
+      const platformKey = urlParams.get('platform');
+
+      fetch(`https://ogregorio.github.io/handheld-database/platforms/${platformKey}/index.json`)
         .then(response => response.json())
         .then(data => {
-          const popularPlatforms = data.platforms; 
-          const popularPlatformsContainer = document.getElementById('platforms');
+          const systems = data.systems; 
+          const systemsContainer = document.getElementById('systems');
 
-          popularPlatforms.forEach(platform => {
-            const platformItem = document.createElement('div');
-            platformItem.className = 'col-lg-3 col-sm-6';
+          systems.forEach(system => {
+            const systemItem = document.createElement('div');
+            systemItem.className = 'col-lg-3 col-sm-6';
 
-            platformItem.innerHTML = `
+            systemItem.innerHTML = `
               <div class="item">
-                <a href="platform.html?platform=${platform.database_key}">
-                  <img src="https://ogregorio.github.io/handheld-database/commons/images/${platform.image}" alt="">
-                  <h4>${platform.name}<br><span>${platform.system}</span></h4>
+                <a href="games.html?platform=${platformKey}&system=${system.key}">
+                  <img src="https://ogregorio.github.io/handheld-database/commons/images/systems/${system.key}.webp" alt="">
+                  <h4>${system.name}<br><span>Key: ${system.key}</span></h4>
                 </a>
                 <ul>
                 </ul>
               </div>
             `;
 
-            popularPlatformsContainer.appendChild(platformItem);
+            systemsContainer.appendChild(systemItem);
           });
         })
-        .catch(error => console.log('Error fetching popular platforms:', error));
+        .catch(error => console.log('Error fetching popular systems:', error));
+
+      fetch('https://ogregorio.github.io/handheld-database/commons/collaborators/collaborators.json')
+        .then(response => response.json())
+        .then(collaborators => {
+          const collaboratorsContainer = document.getElementById('collaborators');
+
+          collaborators.forEach(collaborator => {
+            const collaboratorItem = document.createElement('div');
+            collaboratorItem.className = 'col-lg-3 col-sm-6';
+
+            collaboratorItem.innerHTML = `
+              <div class="item">
+                <img src="${collaborator.avatar_url}" alt="${collaborator.login}" class="img-fluid">
+                <h4>${collaborator.login}</h4>
+                <br/>
+                <a href="https://github.com/${collaborator.login}" target="_blank">View Profile</a>
+              </div>
+            `;
+
+            collaboratorsContainer.appendChild(collaboratorItem);
+          });
+        })
+        .catch(error => console.log('Error fetching collaborators:', error));
     });
   </script>
 
