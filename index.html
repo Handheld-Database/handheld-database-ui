@@ -103,6 +103,22 @@ https://templatemo.com/tm-579-cyborg-gaming
             </div>
           </div>
           <!-- ***** Most Popular End ***** -->
+
+          <!-- ***** Rank Concept Start ***** -->
+          <div class="most-popular">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="heading-section">
+                  <h4>How the <em>Ranks</em> Works</h4>
+                </div>
+                <div class="row" id="ranks">
+                  <!-- Ranks will be dynamically inserted here -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ***** Rank Concept End ***** -->
+
         </div>
       </div>
     </div>
@@ -158,6 +174,82 @@ https://templatemo.com/tm-579-cyborg-gaming
         })
         .catch(error => console.log('Error fetching popular platforms:', error));
     });
+  </script>
+
+  <script>
+    // Sample data representing platform ranks
+    const ranksData = [
+      {
+        name: 'PLATINA',
+        color: 'rgb(180, 199, 220)',
+        graphics: 'Outstanding, with no glitches or visual issues and exceptional detail.',
+        gameplay: 'Extremely stable, with very high FPS (60 or higher) and absolutely no drops or stuttering.',
+        load: 'Instantaneous loading, completely free of crashes or any issues affecting user experience.'
+      },
+      {
+        name: 'GOLD',
+        color: 'rgb(207, 181, 59)',
+        graphics: 'Excellent, without significant glitches or visual issues.',
+        gameplay: 'Very stable, with a high FPS rate (30 or higher) and no noticeable drops or stuttering.',
+        load: 'Quick loading, no crashes, or issues that affect the user experience.'
+      },
+      {
+        name: 'SILVER',
+        color: 'rgb(166, 166, 166)',
+        graphics: 'Good, with some minor glitches that do not significantly affect the gaming experience.',
+        gameplay: 'Stable most of the time, with occasional minor FPS drops or stuttering.',
+        load: 'Relatively quick loading, with few slowdowns or minor issues that can be worked around.'
+      },
+      {
+        name: 'BRONZE',
+        color: 'rgb(205, 127, 50)',
+        graphics: 'Acceptable, but with noticeable visual glitches that can affect the gaming experience.',
+        gameplay: 'Inconsistent, with more frequent and noticeable FPS drops and occasional stuttering.',
+        load: 'Slow loading, with the possibility of crashes or issues that affect usability.'
+      },
+      {
+        name: 'GARBAGE',
+        color: 'red',
+        graphics: 'Poor, with severe glitches and visual issues that hinder gameplay.',
+        gameplay: 'Very unstable, with constant FPS drops and severe stuttering, compromising playability.',
+        load: 'Significant loading problems, including frequent crashes and glitches that impede proper use.'
+      }
+    ];
+
+    // Function to create and append elements based on data
+    function populateRanks(data) {
+      const ranksContainer = document.getElementById('ranks');
+      
+      // Clear existing content
+      ranksContainer.innerHTML = '';
+
+      // Iterate through data and create HTML structure
+      data.forEach(ranks => {
+        const ranksItem = document.createElement('div');
+        ranksItem.classList.add('col-lg-6', 'mb-4', 'text-right', 'text-lg-left'); // Bootstrap grid and text alignment classes
+
+        ranksItem.innerHTML = `
+          <div class="card bg-dark text-light">
+            <div class="card-body">
+              <h5 class="card-title">
+                <i class="fa fa-star mr-2" style="color: ${ranks.color}"></i> ${ranks.name}
+              </h5>
+              <ul class="list-unstyled">
+                <li><b>Graphics:</b> ${ranks.graphics}</li>
+                <li><b>Gameplay:</b> ${ranks.gameplay}</li>
+                <li><b>Load:</b> ${ranks.load}</li>
+              </ul>
+            </div>
+          </div>
+        `;
+
+        ranksContainer.appendChild(ranksItem);
+      });
+    }
+
+    // Call the function with your data
+    populateRanks(ranksData);
+
   </script>
 
 </body>
