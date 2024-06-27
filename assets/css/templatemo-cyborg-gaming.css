@@ -1727,3 +1727,21 @@ body {
     margin: 24px 0px;
   }
 }
+
+.form-control {
+  background-color: #333333;
+  color: #ffffff;
+  border: 1px solid #444444;
+}
+.form-control:focus {
+  background-color: #444444;
+  color: #ffffff;
+  border: 1px solid #555555;
+}
+.form-control option {
+  background-color: #333333;
+  color: #ffffff;
+}
+.heading-section h4 {
+  color: #ffffff;
+}
