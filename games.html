@@ -130,7 +130,7 @@
       const platformKey = urlParams.get('platform');
       const systemKey = urlParams.get('system');
 
-      fetch(`https://ogregorio.github.io/handheld-database/platforms/${platformKey}/systems/${systemKey}/index.json`)
+      fetch(`https://handheld-database.github.io/handheld-database/platforms/${platformKey}/systems/${systemKey}/index.json`)
         .then(response => response.json())
         .then(data => {
           const games = data.games; 
@@ -145,7 +145,7 @@
               gameItem.innerHTML = `
                 <div class="item">
                   <a href="details.html?platform=${platformKey}&system=${systemKey}&game=${game.key}">
-                    <img src="https://ogregorio.github.io/handheld-database/commons/images/games/${game.key}.icon.webp" onerror="this.src='/assets/images/not-found.webp'">
+                    <img src="https://handheld-database.github.io/handheld-database/commons/images/games/${game.key}.icon.webp" onerror="this.src='/assets/images/not-found.webp'">
                     <h4>${game.name}<br><span><i class="fa fa-star" style="color: ${rankColors[game.rank]};"></i> ${game.rank}</span></h4>
                   </a>
                 </div>

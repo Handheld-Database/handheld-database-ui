@@ -144,7 +144,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      fetch('https://ogregorio.github.io/handheld-database/platforms/index.json')
+      fetch('https://handheld-database.github.io/handheld-database/platforms/index.json')
         .then(response => response.json())
         .then(data => {
           const popularPlatforms = data.platforms; 
@@ -157,7 +157,7 @@
             platformItem.innerHTML = `
               <div class="item">
                 <a href="platform.html?platform=${platform.database_key}">
-                  <img src="https://ogregorio.github.io/handheld-database/commons/images/${platform.image}" alt="">
+                  <img src="https://handheld-database.github.io/handheld-database/commons/images/${platform.image}" alt="">
                   <h4>${platform.name}<br><span>${platform.system}</span></h4>
                 </a>
                 <ul>

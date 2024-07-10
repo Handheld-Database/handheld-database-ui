@@ -168,7 +168,7 @@
   
     async function loadGameDetails() {
       if(gameKey) {
-        const response = await fetch(`https://ogregorio.github.io/handheld-database/platforms/${platformKey}/systems/${systemKey}/${gameKey}/${gameKey}.json`);
+        const response = await fetch(`https://handheld-database.github.io/handheld-database/platforms/${platformKey}/systems/${systemKey}/${gameKey}/${gameKey}.json`);
   
         if (!response.ok) {
           throw new Error('Failed to fetch JSON file');
@@ -188,7 +188,7 @@
   
     async function loadPlatformDetails() {
       try {
-        const response = await fetch(`https://ogregorio.github.io/handheld-database/platforms/${platformKey}/index.json`);
+        const response = await fetch(`https://handheld-database.github.io/handheld-database/platforms/${platformKey}/index.json`);
   
         if (!response.ok) {
           throw new Error('Failed to fetch JSON file');
@@ -206,7 +206,7 @@
   
     async function loadGameBanner() {
       if(gameKey) {
-        const imageUrl = `https://ogregorio.github.io/handheld-database/commons/images/games/${gameKey}.cover.webp`;
+        const imageUrl = `https://handheld-database.github.io/handheld-database/commons/images/games/${gameKey}.cover.webp`;
         const banner = document.getElementById('main-banner');
         banner.style.backgroundImage = `url(${imageUrl}), url(/assets/images/not-found-banner.webp)`;
       }
@@ -214,7 +214,7 @@
   
     async function loadGameContent() {
       async function loadGameOverview() {
-        const response = await fetch(`https://ogregorio.github.io/handheld-database/commons/overviews/${gameKey}.overview.md`);
+        const response = await fetch(`https://handheld-database.github.io/handheld-database/commons/overviews/${gameKey}.overview.md`);
   
         if (!response.ok) {
           throw new Error('Failed to load game overview');
@@ -224,7 +224,7 @@
       }
   
       try {
-        const response = await fetch(`https://ogregorio.github.io/handheld-database/platforms/${platformKey}/systems/${systemKey}/${gameKey}/${gameKey}.md`);
+        const response = await fetch(`https://handheld-database.github.io/handheld-database/platforms/${platformKey}/systems/${systemKey}/${gameKey}/${gameKey}.md`);
   
         if (!response.ok) {
           throw new Error('Failed to fetch Markdown file');
