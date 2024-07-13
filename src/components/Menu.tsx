@@ -1,0 +1,30 @@
+import React from 'react';
+import { Navbar, Nav, Container } from 'react-bootstrap';
+
+const Menu: React.FC = () => {
+  return (
+    <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
+      <Container>
+        <Navbar.Brand href="/">
+          <img
+            src="/images/logo.png"
+            width="auto"
+            height="30"
+            className="d-inline-block align-top"
+            alt="Handheld Database Logo"
+          />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link href="https://github.com/Handheld-Database">GitHub</Nav.Link>
+            <Nav.Link href="/collaborators">Collaborators</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+};
+
+export default Menu;
