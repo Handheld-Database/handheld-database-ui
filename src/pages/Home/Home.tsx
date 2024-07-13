@@ -1,13 +1,13 @@
-/* eslint-disable react/jsx-no-undef */
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { RankingDetailsT } from '../../types/RankingDetailsT';
 import RankingDetails from '../../components/RankingDetails';
 import { Platform } from '../../types/PlatformT';
-import { Link } from 'react-router-dom';
 import Card from '../../components/Card';
+import HandheldDatabaseService from '../../services/HandheldDatabaseService';
 
 const Home: React.FC = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [platforms, setPlatforms] = useState<Platform[]>([]);
   const [ranks] = useState<RankingDetailsT[]>([
     {
@@ -48,12 +48,17 @@ const Home: React.FC = () => {
   ]);
 
   useEffect(() => {
-    fetch('https://handheld-database.github.io/handheld-database/platforms/index.json')
-      .then((response) => response.json())
-      .then((data) => {
-        setPlatforms(data.platforms);
-      })
-      .catch((error) => console.log('Error fetching popular platforms:', error));
+    setIsLoading(true);
+
+    const didMount = async () => {
+      const platforms = await HandheldDatabaseService.fetchPlatforms()
+      setPlatforms(platforms);
+      setIsLoading(false);
+    }
+
+    didMount();
+
+    return () => {}
   }, []);
 
   return (
@@ -92,6 +97,7 @@ const Home: React.FC = () => {
                     link={`/platforms/${platform.database_key}`}
                     title={platform.name}
                     subtitle={platform.system}
+                    isLoading={isLoading}
                     key={i}
                   />
                 </Col>
