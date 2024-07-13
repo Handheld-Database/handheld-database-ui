@@ -1,11 +1,15 @@
+/* eslint-disable react/jsx-no-undef */
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
-import { RankingDetailsT } from '../types/RankingDetailsT';
-import RankingDetails from '../components/RankingDetails';
+import { Container, Row, Col } from 'react-bootstrap';
+import { RankingDetailsT } from '../../types/RankingDetailsT';
+import RankingDetails from '../../components/RankingDetails';
+import { Platform } from '../../types/PlatformT';
+import { Link } from 'react-router-dom';
+import Card from '../../components/Card';
 
 const Home: React.FC = () => {
-  const [platforms, setPlatforms] = useState<any[]>([]);
-  const [ranks, setRanks] = useState<RankingDetailsT[]>([
+  const [platforms, setPlatforms] = useState<Platform[]>([]);
+  const [ranks] = useState<RankingDetailsT[]>([
     {
       name: 'PLATINUM',
       color: 'rgb(180, 199, 220)',
@@ -81,18 +85,15 @@ const Home: React.FC = () => {
               </h4>
             </div>
             <Row id="platforms">
-              {platforms.map((platform) => (
+              {platforms.map((platform: Platform, i: number) => (
                 <Col lg={3} sm={6} key={platform.database_key}>
-                  <Card className="bg-dark text-light mb-4">
-                    <Card.Img
-                      variant="top"
-                      src={`https://handheld-database.github.io/handheld-database/commons/images/${platform.image}`}
-                    />
-                    <Card.Body>
-                      <Card.Title>{platform.name}</Card.Title>
-                      <Card.Text>{platform.system}</Card.Text>
-                    </Card.Body>
-                  </Card>
+                  <Card 
+                    image={`https://handheld-database.github.io/handheld-database/commons/images/${platform.image}`}
+                    link={`/platforms/${platform.database_key}`}
+                    title={platform.name}
+                    subtitle={platform.system}
+                    key={i}
+                  />
                 </Col>
               ))}
             </Row>

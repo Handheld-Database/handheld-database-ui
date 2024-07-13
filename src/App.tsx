@@ -1,14 +1,13 @@
-import './App.css';
 import Footer from './components/Footer';
 import Menu from './components/Menu';
-import Home from './pages/home';
+import Router from './router/Router';
 
 function App() {
   return (
     <div className="App">
-      <Menu/>
-      <Home/>
-      <Footer/>
+      <Menu />
+      <Router/>
+      <Footer />
     </div>
   );
 }
