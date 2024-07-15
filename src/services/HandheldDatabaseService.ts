@@ -1,9 +1,9 @@
-import { Platform } from "../types/PlatformT";
+import { Platform, PlatformIndex } from "../types/PlatformT";
 
 const baseUrl = 'https://handheld-database.github.io/handheld-database'
 
 const HandheldDatabaseService = {
-  fetchPlatforms: async (): Promise<Platform[]> => {
+  fetchPlatformsIndex: async (): Promise<PlatformIndex[]> => {
     try {
       const response = await fetch(`${baseUrl}/platforms/index.json`);
       if (!response.ok) {
@@ -16,14 +16,14 @@ const HandheldDatabaseService = {
       throw error;
     }
   },
-  fetchSytems: async (platformKey: string): Promise<Platform[]> => {
+  fetchPlatform: async (platformKey: string): Promise<Platform> => {
     try {
       const response = await fetch(`${baseUrl}/platforms/${platformKey}/index.json`);
       if (!response.ok) {
         throw new Error(`Failed to fetch systems from ${platformKey}`);
       }
       const data = await response.json();
-      return data.platforms;
+      return data;
     } catch (error) {
       console.error('Error fetching systems:', error);
       throw error;
@@ -42,7 +42,7 @@ const HandheldDatabaseService = {
       throw error;
     }
   },
-  fetchGame: async (platformKey: string, systemKey: string, gameKey: string): Promise<Platform[]> => {
+  fetchGameDetails: async (platformKey: string, systemKey: string, gameKey: string): Promise<Platform[]> => {
     try {
       const response = await fetch(`${baseUrl}/platforms/${platformKey}/systems/${systemKey}/${gameKey}/${gameKey}.json`);
       if (!response.ok) {

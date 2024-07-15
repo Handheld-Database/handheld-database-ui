@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { RankingDetailsT } from '../../types/RankingDetailsT';
 import RankingDetails from '../../components/RankingDetails';
-import { Platform } from '../../types/PlatformT';
+import { PlatformIndex } from '../../types/PlatformT';
 import Card from '../../components/Card';
 import HandheldDatabaseService from '../../services/HandheldDatabaseService';
 
-const Home: React.FC = () => {
+const HomePage: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [platforms, setPlatforms] = useState<Platform[]>([]);
+  const [platforms, setPlatforms] = useState<PlatformIndex[]>([]);
   const [ranks] = useState<RankingDetailsT[]>([
     {
       name: 'PLATINUM',
@@ -51,7 +51,7 @@ const Home: React.FC = () => {
     setIsLoading(true);
 
     const didMount = async () => {
-      const platforms = await HandheldDatabaseService.fetchPlatforms()
+      const platforms = await HandheldDatabaseService.fetchPlatformsIndex()
       setPlatforms(platforms);
       setIsLoading(false);
     }
@@ -90,7 +90,7 @@ const Home: React.FC = () => {
               </h4>
             </div>
             <Row id="platforms">
-              {platforms.map((platform: Platform, i: number) => (
+              {platforms.map((platform: PlatformIndex, i: number) => (
                 <Col lg={3} sm={6} key={platform.database_key}>
                   <Card 
                     image={`https://handheld-database.github.io/handheld-database/commons/images/${platform.image}`}
@@ -125,4 +125,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default HomePage;
