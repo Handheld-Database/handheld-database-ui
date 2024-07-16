@@ -1,5 +1,6 @@
 {
   "name": "handheld-database-ui",
+  "homepage": "https://www.handheldb.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -26,7 +27,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
@@ -46,6 +49,7 @@
     "@types/showdown": "^2.0.6",
     "eslint": "^8.0.0",
     "eslint-plugin-react": "^7.34.3",
+    "gh-pages": "^6.1.1",
     "globals": "^15.8.0",
     "typescript-eslint": "^7.16.0"
   }
