@@ -75,7 +75,7 @@ const SystemGamesPage: React.FC = () => {
       <Row className="mt-5 gallery-section">
         <Col lg={12}>
           <div className='heading-section'>
-            <h4><em>Most Popular</em> Games</h4>
+            <h4><em>Ranked</em> Games</h4>
           </div>
           <Row id="games">
             {filteredGames?.map((game: Game, i: number) => (

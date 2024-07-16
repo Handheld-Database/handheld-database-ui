@@ -18,7 +18,7 @@ const Menu: React.FC = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link href="https://github.com/Handheld-Database">GitHub</Nav.Link>
-            <Nav.Link href="/collaborators">Collaborators</Nav.Link>
+            <Nav.Link href="/#/collaborators">Collaborators</Nav.Link>
             <Nav.Link href="/">Home</Nav.Link>
           </Nav>
         </Navbar.Collapse>

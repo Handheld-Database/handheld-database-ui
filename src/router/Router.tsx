@@ -3,6 +3,7 @@ import Home from '../pages/Home/Home';
 import Platform from '../pages/Platform/Platform';
 import SystemGames from '../pages/SystemGames/SystemGames';
 import GameDetailsPage from '../pages/GameDetails/GameDetails';
+import CollaboratorsPage from '../pages/Collaborators/Collaborators';
 
 const router = createHashRouter([
   {
@@ -20,6 +21,10 @@ const router = createHashRouter([
   {
     path: "platforms/:platformKey/:systemKey/:gameKey",
     element: <GameDetailsPage/>
+  },
+  {
+    path: "collaborators",
+    element: <CollaboratorsPage/>
   }
 ]);
 

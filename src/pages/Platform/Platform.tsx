@@ -49,7 +49,7 @@ const PlatformPage: React.FC = () => {
         <Col lg={12}>
           <div className='heading-section'>
             <h4>
-              <em>Most Popular</em> Systems
+              <em>List of</em> Systems
             </h4>
           </div>
           <Row id="systems">
@@ -68,7 +68,7 @@ const PlatformPage: React.FC = () => {
           </Row>
         </Col>
       </Row>
-      
+
     </Container>
   );
 };

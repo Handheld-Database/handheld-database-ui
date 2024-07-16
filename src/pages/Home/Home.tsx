@@ -63,7 +63,7 @@ const HomePage: React.FC = () => {
 
   return (
     <Container className="mt-4 page-content">
-      
+
       <Row>
         <Col lg={12}>
           <div className="main-banner text-light">
@@ -85,7 +85,7 @@ const HomePage: React.FC = () => {
         <Col lg={12}>
           <div className='heading-section'>
             <h4>
-              <em>Most Popular</em> Platforms
+              <em>Available</em> Platforms
             </h4>
           </div>
           <Row id="platforms">
@@ -109,7 +109,7 @@ const HomePage: React.FC = () => {
         <Col lg={12}>
           <div className='heading-section'>
             <h4>
-              How the <em>Ranks</em> Works
+              How the <em>Ranking</em> Works
             </h4>
           </div>
           <Row id="ranks">

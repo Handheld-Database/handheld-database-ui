@@ -193,14 +193,14 @@ section {
 }
 
 .heading-section h4 {
-  color: #9863d9;
+  color: #fff;
   font-size: 34px;
   text-decoration: none;
   margin-bottom: 30px;
 }
 
 .heading-section h4 em {
-  color: #fff;
+  color: #c379ff;
   font-style: normal;
   text-decoration: underline;
 }

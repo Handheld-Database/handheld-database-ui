@@ -1,3 +1,4 @@
+import { Collaborator } from "../types/CollaboratorT";
 import { Game, GameDetails } from "../types/GameT";
 import { Platform, PlatformIndex } from "../types/PlatformT";
 
@@ -101,7 +102,19 @@ const HandheldDatabaseService = {
     }
   
     return filteredGames;
-  }
+  },
+  fetchCollaborators: async (): Promise<Collaborator[]> => {
+    try {
+      const response = await fetch(`${baseUrl}/commons/collaborators/collaborators.json`);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch collaborators`);
+      }
+      return await response.json();
+    } catch (error) {
+      console.error('Error fetching collaborators:', error);
+      throw error;
+    }
+  },
 };
 
 export default HandheldDatabaseService;
