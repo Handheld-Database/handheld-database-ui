@@ -4,4 +4,9 @@ type Game = {
     rank: string;
 }
 
-export type { Game }
+type GameDetails = {
+    name: string;
+    rank: string;
+}
+
+export type { Game, GameDetails }

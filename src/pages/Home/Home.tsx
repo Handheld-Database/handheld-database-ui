@@ -62,66 +62,63 @@ const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <div className="container">
-
-      <Container className="mt-4 page-content">
-        <Row>
-          <Col lg={12}>
-            <div className="main-banner text-light">
-              <Row>
-                <Col lg={7}>
-                  <div className="header-text">
-                    <h6>Welcome To Handheld Database</h6>
-                    <h4>
-                      <em>Ranking</em> the Best (and Worst) Games!
-                    </h4>
-                  </div>
-                </Col>
-              </Row>
-            </div>
-          </Col>
-        </Row>
-
-        <Row className="mt-5 gallery-section">
-          <Col lg={12}>
-            <div className='heading-section'>
-              <h4>
-                <em>Most Popular</em> Platforms
-              </h4>
-            </div>
-            <Row id="platforms">
-              {platforms.map((platform: PlatformIndex, i: number) => (
-                <Col lg={3} sm={6} key={platform.database_key}>
-                  <Card 
-                    image={`https://handheld-database.github.io/handheld-database/commons/images/${platform.image}`}
-                    link={`/platforms/${platform.database_key}`}
-                    title={platform.name}
-                    subtitle={platform.system}
-                    isLoading={isLoading}
-                    key={i}
-                  />
-                </Col>
-              ))}
+    <Container className="mt-4 page-content">
+      
+      <Row>
+        <Col lg={12}>
+          <div className="main-banner text-light">
+            <Row>
+              <Col lg={7}>
+                <div className="header-text">
+                  <h6>Welcome To Handheld Database</h6>
+                  <h4>
+                    <em>Ranking</em> the Best (and Worst) Games!
+                  </h4>
+                </div>
+              </Col>
             </Row>
-          </Col>
-        </Row>
+          </div>
+        </Col>
+      </Row>
 
-        <Row className="mt-5 gallery-section">
-          <Col lg={12}>
-            <div className='heading-section'>
-              <h4>
+      <Row className="mt-5 gallery-section">
+        <Col lg={12}>
+          <div className='heading-section'>
+            <h4>
+              <em>Most Popular</em> Platforms
+            </h4>
+          </div>
+          <Row id="platforms">
+            {platforms.map((platform: PlatformIndex, i: number) => (
+              <Col lg={3} sm={6} key={platform.database_key}>
+                <Card 
+                  image={`https://handheld-database.github.io/handheld-database/commons/images/${platform.image}`}
+                  link={`/platforms/${platform.database_key}`}
+                  title={platform.name}
+                  subtitle={platform.system}
+                  isLoading={isLoading}
+                  key={i}
+                />
+              </Col>
+            ))}
+          </Row>
+        </Col>
+      </Row>
+
+      <Row className="mt-5 gallery-section">
+        <Col lg={12}>
+          <div className='heading-section'>
+            <h4>
               How the <em>Ranks</em> Works
-              </h4>
-            </div>
-            <Row id="ranks">
-              <RankingDetails ranks={ranks} />
-            </Row>
-          </Col>
-        </Row>
-      </Container>
+            </h4>
+          </div>
+          <Row id="ranks">
+            <RankingDetails ranks={ranks} />
+          </Row>
+        </Col>
+      </Row>
 
-
-    </div>
+    </Container>
   );
 };
 

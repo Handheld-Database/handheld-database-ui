@@ -33,67 +33,67 @@ const SystemGamesPage: React.FC = () => {
   }, [searchTerm, rankFilter, games]);
 
   return (
-    <div className="container">
-      <Container className="mt-4 page-content">
-        <Row>
-          <Col lg={12}>
-            <div className="main-banner text-light">
-              <Row>
-                <Col lg={7}>
-                  <div className="header-text">
-                    <h6>Welcome To Handheld Database</h6>
-                    <h4><em>Ranking</em> the Best (and Worst) Games!</h4>
-                  </div>
-                </Col>
-              </Row>
-            </div>
-          </Col>
-        </Row>
-
-        <Row className="mt-5">
-          <Col lg={4}>
-            <FormControl
-              type="text"
-              placeholder="Search by name"
-              className="mr-sm-2"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </Col>
-          <Col lg={4}>
-            <Form.Control as="select" value={rankFilter} onChange={(e) => setRankFilter(e.target.value)}>
-              <option value="ALL">All Ranks</option>
-              <option value="PLATINUM">Platinum</option>
-              <option value="GOLD">Gold</option>
-              <option value="SILVER">Silver</option>
-              <option value="BRONZE">Bronze</option>
-              <option value="FAULTY">Faulty</option>
-            </Form.Control>
-          </Col>
-        </Row>
-
-        <Row className="mt-5 gallery-section">
-          <Col lg={12}>
-            <div className='heading-section'>
-              <h4><em>Most Popular</em> Games</h4>
-            </div>
-            <Row id="games">
-              {filteredGames?.map((game: Game, i: number) => (
-                <Col key={game.key} xs={12} sm={6} md={4} lg={3} className="d-flex align-items-stretch">
-                  <GameCard
-                    platformKey={platformKey}
-                    systemKey={systemKey}
-                    game={game}
-                    key={i}
-                    isLoading={isLoading}
-                  />
-                </Col>
-              ))}
+    <Container className="mt-4 page-content">
+        
+      <Row>
+        <Col lg={12}>
+          <div className="main-banner text-light">
+            <Row>
+              <Col lg={7}>
+                <div className="header-text">
+                  <h6>Welcome To Handheld Database</h6>
+                  <h4><em>Ranking</em> the Best (and Worst) Games!</h4>
+                </div>
+              </Col>
             </Row>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+          </div>
+        </Col>
+      </Row>
+
+      <Row className="mt-5">
+        <Col lg={4}>
+          <FormControl
+            type="text"
+            placeholder="Search by name"
+            className="mr-sm-2"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </Col>
+        <Col lg={4}>
+          <Form.Control as="select" value={rankFilter} onChange={(e) => setRankFilter(e.target.value)}>
+            <option value="ALL">All Ranks</option>
+            <option value="PLATINUM">Platinum</option>
+            <option value="GOLD">Gold</option>
+            <option value="SILVER">Silver</option>
+            <option value="BRONZE">Bronze</option>
+            <option value="FAULTY">Faulty</option>
+          </Form.Control>
+        </Col>
+      </Row>
+
+      <Row className="mt-5 gallery-section">
+        <Col lg={12}>
+          <div className='heading-section'>
+            <h4><em>Most Popular</em> Games</h4>
+          </div>
+          <Row id="games">
+            {filteredGames?.map((game: Game, i: number) => (
+              <Col key={game.key} xs={12} sm={6} md={4} lg={3} className="d-flex align-items-stretch">
+                <GameCard
+                  platformKey={platformKey}
+                  systemKey={systemKey}
+                  game={game}
+                  key={i}
+                  isLoading={isLoading}
+                />
+              </Col>
+            ))}
+          </Row>
+        </Col>
+      </Row>
+
+    </Container>
   );
 };
 

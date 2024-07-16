@@ -1,4 +1,4 @@
-import { Game } from "../types/GameT";
+import { Game, GameDetails } from "../types/GameT";
 import { Platform, PlatformIndex } from "../types/PlatformT";
 
 const baseUrl = 'https://handheld-database.github.io/handheld-database';
@@ -52,7 +52,7 @@ const HandheldDatabaseService = {
       throw error;
     }
   },
-  fetchGameDetails: async (platformKey: string, systemKey: string, gameKey: string): Promise<unknown> => {
+  fetchGameDetails: async (platformKey: string, systemKey: string, gameKey: string): Promise<GameDetails> => {
     try {
       const response = await fetch(`${baseUrl}/platforms/${platformKey}/systems/${systemKey}/${gameKey}/${gameKey}.json`);
       if (!response.ok) {
@@ -65,7 +65,7 @@ const HandheldDatabaseService = {
       throw error;
     }
   },
-  fetchGameOverview: async (gameKey: string): Promise<string> => {
+  fetchGameOverview: async (gameKey: string): Promise<string|undefined> => {
     try {
       const response = await fetch(`${baseUrl}/commons/overviews/${gameKey}.overview.md`);
       if (!response.ok) {
@@ -74,7 +74,7 @@ const HandheldDatabaseService = {
       return response.text();
     } catch (error) {
       console.error('Error fetching game overview:', error);
-      throw error;
+      return undefined;
     }
   },
   fetchGameMarkdown: async (platformKey: string, systemKey: string, gameKey: string): Promise<string> => {
