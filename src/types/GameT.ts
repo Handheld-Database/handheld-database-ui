@@ -1,6 +1,7 @@
-type System = {
+type Game = {
     name: string;
     key: string;
+    rank: string;
 }
 
-export type { System }
+export type { Game }

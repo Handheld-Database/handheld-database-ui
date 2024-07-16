@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { RankingDetailsT } from '../../types/RankingDetailsT';
 import RankingDetails from '../../components/RankingDetails';
 import { PlatformIndex } from '../../types/PlatformT';
-import Card from '../../components/Card';
+import Card from '../../components/Cards/Card';
 import HandheldDatabaseService from '../../services/HandheldDatabaseService';
 
 const HomePage: React.FC = () => {

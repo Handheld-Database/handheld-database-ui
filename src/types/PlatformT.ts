@@ -1,4 +1,4 @@
-import { System } from "./GameT";
+import { System } from "./SystemT";
 
 type PlatformIndex = {
     name: string;

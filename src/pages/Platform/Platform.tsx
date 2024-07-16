@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Platform } from '../../types/PlatformT';
-import Card from '../../components/Card';
+import Card from '../../components/Cards/Card';
 import HandheldDatabaseService from '../../services/HandheldDatabaseService';
 import { useParams } from 'react-router-dom';
-import { System } from '../../types/GameT';
+import { System } from '../../types/SystemT';
 
 const PlatformPage: React.FC = () => {
-  const { key } = useParams<{ key: string }>();
+  const { platformKey } = useParams<{ platformKey: string }>();
   const [platform, setPlatform] = useState<Platform>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -15,7 +15,7 @@ const PlatformPage: React.FC = () => {
     setIsLoading(true);
 
     const didMount = async () => {
-      const platform = await HandheldDatabaseService.fetchPlatform(key as string);
+      const platform = await HandheldDatabaseService.fetchPlatform(platformKey as string);
       setPlatform(platform);
       setIsLoading(false);
     }
