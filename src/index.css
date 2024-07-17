@@ -1,0 +1,904 @@
+/* 
+---------------------------------------------
+font & reset css
+--------------------------------------------- 
+*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900");
+/* 
+---------------------------------------------
+reset
+--------------------------------------------- 
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, div
+pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q,
+s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
+figure, header, nav, section, article, aside, footer, figcaption {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+html[xmlns] .clearfix {
+  display: block;
+}
+
+* html .clearfix {
+  height: 1%;
+}
+
+ul, li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+header, nav, section, article, aside, footer, hgroup {
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  background-color: #1e1e1e;
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+	color: #CCC;
+  text-decoration: none !important;
+}
+a:hover {
+	color: #F99;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: #fff;
+  font-weight: 700;
+}
+
+ul {
+  margin-bottom: 0px;
+}
+
+p {
+  font-size: 15px;
+  line-height: 30px;
+  color: #fff;
+}
+
+img {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* 
+---------------------------------------------
+Global Styles
+--------------------------------------------- 
+*/
+html,
+body {
+  background: #1f2122;
+  font-family: 'Poppins', sans-serif;
+}
+
+body .page-content {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  background-color: #27292a;
+  padding: 60px;
+  border-radius: 23px;
+}
+
+p {
+  font-size: 15px;
+  color: #bbb;
+  line-height: 30px;
+  margin-bottom: 0px;
+}
+
+::selection {
+  background: #9843ff;
+  color: #fff;
+}
+
+::-moz-selection {
+  background: #9843ff;
+  color: #fff;
+}
+
+.templatemo-item {
+	max-width: 80px; 
+	border-radius: 23px;
+}
+
+.main-button a {
+  font-size: 14px;
+  color: #fff;
+  background-color: #9843ff;
+  padding: 12px 30px;
+  display: inline-block;
+  border-radius: 25px;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-button a:hover {
+  background-color: #fff;
+  color: #9843ff;
+}
+
+.main-border-button a {
+  font-size: 14px;
+  color: #9863d9;
+  background-color: transparent;
+  border: 1px solid #9863d9;
+  padding: 12px 30px;
+  display: inline-block;
+  border-radius: 25px;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-border-button a:hover {
+  border-color: #fff;
+  background-color: #fff;
+  color: #9843ff;
+}
+
+.border-no-active a {
+  border-color: #bbb;
+  color: #bbb;
+}
+
+.border-no-active a:hover{
+  border-color: #bbb;
+  color: #bbb;
+  background-color: transparent;
+}
+
+section {
+  margin-top: 120px;
+}
+
+.heading-section h4 {
+  color: #fff;
+  font-size: 34px;
+  text-decoration: none;
+  margin-bottom: 30px;
+}
+
+.heading-section h4 em {
+  color: #c379ff;
+  font-style: normal;
+  text-decoration: underline;
+}
+
+/* 
+---------------------------------------------
+Pre-loader Style
+--------------------------------------------- 
+*/
+
+.js-preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.99);
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  z-index: 9999;
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+.js-preloader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@-webkit-keyframes dot {
+  50% {
+      -webkit-transform: translateX(96px);
+      transform: translateX(96px);
+  }
+}
+
+@keyframes dot {
+  50% {
+      -webkit-transform: translateX(96px);
+      transform: translateX(96px);
+  }
+}
+
+@-webkit-keyframes dots {
+  50% {
+      -webkit-transform: translateX(-31px);
+      transform: translateX(-31px);
+  }
+}
+
+@keyframes dots {
+  50% {
+      -webkit-transform: translateX(-31px);
+      transform: translateX(-31px);
+  }
+}
+
+.preloader-inner {
+  position: relative;
+  width: 142px;
+  height: 40px;
+  background: transparent;
+}
+
+.preloader-inner .dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 12px;
+  left: 15px;
+  background: #9843ff;
+  border-radius: 50%;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-animation: dot 2.8s infinite;
+  animation: dot 2.8s infinite;
+}
+
+.preloader-inner .dots {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  margin-top: 12px;
+  margin-left: 31px;
+  -webkit-animation: dots 2.8s infinite;
+  animation: dots 2.8s infinite;
+}
+
+.preloader-inner .dots span {
+  display: block;
+  float: left;
+  width: 16px;
+  height: 16px;
+  margin-left: 16px;
+  background: #9843ff;
+  border-radius: 50%;
+}
+
+/*
+---------------------------------------------
+Banner Style
+--------------------------------------------- 
+*/
+
+.main-banner {
+  background-image: url(../public/images/banner-bg.webp);
+  background-position: center center;
+  background-size: cover;
+  min-height: 380px;
+  border-radius: 23px;
+  padding: 80px 60px;
+}
+
+.main-banner h6 {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+.main-banner h4 {
+  font-size: 45px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.main-banner h4 em {
+  font-style: normal;
+  color: #9863d9;
+}
+
+/* 
+---------------------------------------------
+Gallery Style
+--------------------------------------------- 
+*/
+
+.gallery-section {
+  margin-top: 60px;
+  padding: 30px;
+  background-color: #1f2122;
+  border-radius: 23px;
+}
+
+.gallery-section .item {
+  background-color: #27292a;
+  padding: 30px 15px;
+  border-radius: 23px;
+  margin-bottom: 30px;
+}
+
+.gallery-section .item .item {
+  padding: 0px;
+  border-radius: 0px;
+  background-color: transparent;
+  margin-bottom: 0px;
+}
+
+.gallery-section .item img {
+  border-radius: 23px;
+}
+
+.gallery-section .item h4 {
+  font-size: 15px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  display: inline-block;
+}
+
+.gallery-section .item span {
+  color: #bbb;
+  display: block;
+  margin-top: 7px;
+  font-weight: 400;
+}
+
+.gallery-section .item ul {
+  float: right;
+  margin-top: 20px;
+}
+
+.gallery-section .item ul li {
+  text-align: right;
+  color: #fff;
+  font-size: 14px;
+}
+
+.gallery-section .item ul li:first-child i {
+  color: yellow;
+}
+
+.gallery-section .item ul li:last-child i {
+  color: #9863d9;
+}
+
+.gallery-section .main-button {
+  text-align: center;
+  margin-bottom: -53px;
+}
+
+/* 
+---------------------------------------------
+Footer Style
+--------------------------------------------- 
+*/
+
+footer p {
+  text-align: center;
+  padding: 30px 0px;
+  color: #fff;
+  font-weight: 300;
+}
+
+footer p a {
+  color: #fff;
+  transition: all .3s;
+}
+
+footer p a:hover {
+  color: #9863d9;
+}
+
+/* 
+---------------------------------------------
+Featured Games Style
+--------------------------------------------- 
+*/
+
+.featured-games {
+  border-radius: 23px;
+  background-color: #1f2122;
+  padding: 30px;
+}
+
+.featured-games .item .thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-games .item .thumb .hover-effect {
+  position: absolute;
+  bottom: -100px;
+  text-align: center;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .4s;
+}
+
+.featured-games .item .thumb:hover .hover-effect {
+  opacity: 1;
+  visibility: visible;
+  bottom: 15px;
+}
+
+.featured-games .item .thumb .hover-effect h6 {
+  background-color: rgba(31,33,34,0.95);
+  display: inline-block;
+  color: #9863d9;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 25px;
+}
+
+.featured-games .item img {
+  border-radius: 23px;
+}
+
+.featured-games .item h4 {
+  font-size: 15px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  display: inline-block;
+}
+
+.featured-games .item span {
+  color: #bbb;
+  display: block;
+  margin-top: 7px;
+  font-weight: 400;
+}
+
+.featured-games .item ul {
+  float: right;
+  margin-top: 20px;
+}
+
+.featured-games .item ul li {
+  text-align: right;
+  color: #fff;
+  font-size: 14px;
+}
+
+.featured-games .item ul li:first-child i {
+  color: yellow;
+}
+
+.featured-games .item ul li:last-child i {
+  color: #9863d9;
+}
+
+.featured-games .owl-nav {
+  position: absolute;
+  margin: 0 auto;
+  top: -70px;
+  right: 0;
+}
+
+.featured-games .owl-nav .owl-prev {
+  margin-right: 2.5px;
+}
+
+.featured-games .owl-nav .owl-next {
+  margin-left: 2.5px;
+}
+
+.featured-games .owl-nav .owl-prev span,
+.featured-games .owl-nav .owl-next span  {
+  font-size: 36px;
+  display: inline-block;
+  color: #bbb;
+  opacity: 1;
+  transition: all .3s;
+}
+
+.featured-games .owl-nav .owl-prev span:hover,
+.featured-games .owl-nav .owl-next span:hover {
+  opacity: 1;
+  color: #9863d9;
+}
+
+.top-downloaded {
+  border-radius: 23px;
+  background-color: #1f2122;
+  padding: 30px;
+  max-height: 567px;
+  min-height: 567px;
+}
+
+.top-downloaded ul li {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.top-downloaded ul li img {
+  float: left;
+  margin-right: 15px;
+}
+
+.top-downloaded ul li h4 {
+  font-size: 15px;
+  padding-top: 7px;
+}
+
+.top-downloaded ul li h6 {
+  font-size: 15px;
+  color: #bbb;
+  font-weight: 400;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.top-downloaded ul li span {
+  color: #fff;
+  font-size: 15px;
+  margin-right: 10px;
+}
+
+.top-downloaded ul li .download i {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-23px);
+  width: 46px;
+  height: 46px;
+  text-align: center;
+  line-height: 46px;
+  color: #9863d9;
+  background-color: #27292a;
+  border-radius: 50%;
+}
+
+.top-downloaded ul li {
+  border-bottom: 1px solid #27292a;
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+}
+
+.top-downloaded .text-button  {
+  text-align: center;
+}
+
+.top-downloaded .text-button a {
+  font-weight: 600;
+  color: #9863d9;
+  font-size: 15px;
+}
+
+/* 
+---------------------------------------------
+Start Stream Style
+--------------------------------------------- 
+*/
+
+.start-stream .heading-section {
+  margin-top: 60px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.start-stream .item {
+  padding: 30px;
+  border: 1px solid #444;
+  border-radius: 23px;
+}
+
+.start-stream .item h4 {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.start-stream .main-button {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* 
+---------------------------------------------
+Featured Banner Style
+--------------------------------------------- 
+*/
+
+.feature-banner .thumb {
+  position: relative;
+  max-height: 305px;
+  overflow: hidden;
+  border-radius: 23px;;
+}
+
+.feature-banner .thumb a {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-23px, -23px);
+  width: 46px;
+  height: 46px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  line-height: 46px;
+  color: #9863d9;
+}
+
+/* 
+---------------------------------------------
+Game Details Style
+--------------------------------------------- 
+*/
+
+.game-details h2 {
+  font-size: 45px;
+  text-transform: uppercase;
+  margin: 30px 0px;
+}
+
+.game-details .content {
+  border-radius: 23px;
+  padding: 30px;
+  background-color: #1f2122;
+}
+
+.game-details .content .left-info {
+  background-color: #27292a;
+  border-radius: 23px;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.game-details .content .left-info .left {
+  float: left;
+}
+
+.game-details .content .left-info h4 {
+  font-size: 15px;
+  display: block;
+}
+
+.game-details .content .left-info span {
+  color: #bbb;
+  display: block;
+  margin-top: 7px;
+  font-weight: 400;
+}
+
+.game-details .content .left-info ul {
+  text-align: right;
+}
+
+.game-details .content .left-info ul li {
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 3px;
+}
+
+.game-details .content .left-info ul li:first-child i {
+  color: yellow;
+}
+
+.game-details .content .left-info ul li:last-child i {
+  color: #9863d9;
+}
+
+.game-details .content .left-info #game-rank ul li {
+  font-size: 24px;
+}
+
+.game-details .content .right-info {
+  background-color: #27292a;
+  border-radius: 23px;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.game-details .content .right-info ul li {
+  display: inline-block;
+  width: 23%;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+}
+
+.game-details .content .right-info ul li i {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.game-details .content .right-info ul li:first-child i {
+  color: yellow;
+} 
+
+.game-details .content .right-info ul li i {
+  color: #9863d9;
+}
+
+.game-details .main-border-button {
+  margin-top: 35px;
+}
+
+.game-details .main-border-button a {
+  text-align: center;
+  width: 100%;
+} 
+
+/* 
+---------------------------------------------
+Responsive Style
+--------------------------------------------- 
+*/
+
+body {
+  overflow-x: hidden;
+}
+
+@media (max-width: 767px) {
+  body .page-content {
+    padding: 30px;
+  }
+  .main-banner {
+    text-align: center;
+  }
+  .main-banner h4 {
+    font-size: 35px;
+  }
+  .gaming-library .item ul li,
+  .gaming-library .item ul li:first-child,
+  .gaming-library .item ul li:last-child {
+    width: 100% !important;
+    text-align: center !important;
+  }
+  .gaming-library .item ul li {
+    margin-top: 30px;
+  }
+  .top-downloaded ul li .download i {
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+  .top-downloaded ul li img {
+    margin-right: 10px;
+  }
+  .top-downloaded ul li span {
+    font-size: 14px;
+  }
+  .top-streamers ul li .main-button {
+    float: none;
+    margin-top: 10px;
+  }
+  .top-streamers ul li .main-button a {
+    width: 100%;
+    text-align: center;
+  }
+  .top-streamers,
+  .top-downloaded {
+    max-height: 100%;
+    min-height: 100%;
+  }
+  .most-popular .item .inner-item {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .background-header {
+  display: inline-block;
+  }
+  .header-area .main-nav #search {
+    display: none;
+  }
+  .heading-section h4 {
+    font-size: 20px;
+  }
+  .gaming-library .item ul li {
+    width: 48% !important;
+  }
+  .gaming-library .item ul li:last-child {
+    text-align: left;
+  }
+  .featured-games {
+    margin-bottom: 60px;
+  }
+  .start-stream .item {
+    margin: 15px 0px;
+  }
+  .feature-banner .thumb {
+    margin-top: 30px;
+  }
+  .main-profile .main-info {
+    margin: 45px 0px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header-area .main-nav .nav li {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+  .header-area .main-nav .logo {
+    margin-right: 30px;
+    border-right: none;
+  }
+  .gaming-library .item ul li {
+    width: 16%;
+  }
+
+  .game-details h2 {
+    font-size: 24px;
+    margin: 24px 0px;
+  }
+}
+
+.form-control {
+  background-color: #333333;
+  color: #ffffff;
+  border: 1px solid #444444;
+}
+
+.form-control:focus {
+  background-color: #444444;
+  color: #ffffff;
+  border: 1px solid #555555;
+}
+
+.form-control option {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.heading-section h4 {
+  color: #ffffff;
+}
+
+.rank-subtitle {
+  display: flex;
+  align-items: center;
+}
+
+.rank-text {
+  margin-left: 8px;
+}
