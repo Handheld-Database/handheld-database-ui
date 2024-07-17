@@ -3,7 +3,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 
 const Menu: React.FC = () => {
   return (
-    <Navbar bg="transparent" variant="dark" expand="lg">
+    <Navbar bg="transparent" variant="dark" expand="lg" className='py-4'>
       <Container>
         <Navbar.Brand href="/">
           <img
