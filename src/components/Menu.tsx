@@ -9,8 +9,8 @@ const Menu: React.FC = () => {
           <img
             src="/images/logo.png"
             width="auto"
-            height="30"
-            className="d-inline-block align-top"
+            height="25"
+            className="d-inline-block align-center"
             alt="Handheld Database Logo"
           />
         </Navbar.Brand>
