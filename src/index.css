@@ -305,6 +305,10 @@ Pre-loader Style
   border-radius: 50%;
 }
 
+.review-header {
+  margin: 0 !important
+}
+
 /*
 ---------------------------------------------
 Banner Style

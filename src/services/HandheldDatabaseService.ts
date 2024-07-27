@@ -78,9 +78,9 @@ const HandheldDatabaseService = {
       return undefined;
     }
   },
-  fetchGameMarkdown: async (platformKey: string, systemKey: string, gameKey: string): Promise<string> => {
+  fetchGameMarkdown: async (platformKey: string, systemKey: string, gameKey: string, tester: string): Promise<string> => {
     try {
-      const response = await fetch(`${baseUrl}/platforms/${platformKey}/systems/${systemKey}/${gameKey}/${gameKey}.md`);
+      const response = await fetch(`${baseUrl}/platforms/${platformKey}/systems/${systemKey}/${gameKey}/${gameKey}.${tester}.md`);
       if (!response.ok) {
         throw new Error(`Failed to fetch game markdown from ${platformKey}/${systemKey}/${gameKey}`);
       }

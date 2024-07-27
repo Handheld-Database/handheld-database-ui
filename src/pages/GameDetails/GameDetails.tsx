@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Spinner } from 'react-bootstrap';
-import { useParams, Link } from 'react-router-dom';
+import { Container, Row, Col, Spinner, Accordion } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 import showdown from 'showdown';
 import HandheldDatabaseService from '../../services/HandheldDatabaseService';
 import { GameDetails } from '../../types/GameT';
@@ -11,7 +11,26 @@ const GameDetailsPage: React.FC = () => {
   const [gameDetails, setGameDetails] = useState<GameDetails | null>(null);
   const [platformDetails, setPlatformDetails] = useState<Platform | null>(null);
   const [gameContent, setGameContent] = useState<string>('');
+  const [gameOverview, setGameOverview] = useState<string>('');
+  const [tester, setTester] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isReviewLoading, setIsReviewLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    const fetchGameOverview = async () => {
+      try {
+        const overviewMarkdown = await HandheldDatabaseService.fetchGameOverview(gameKey!);
+        const converter = new showdown.Converter();
+        setGameOverview(converter.makeHtml(overviewMarkdown || 'Help us to find a great overview!'));
+      } catch (error) {
+        console.error('Error fetching game details:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchGameOverview();
+  }, [gameKey]);
 
   useEffect(() => {
     const fetchGameDetails = async () => {
@@ -21,14 +40,6 @@ const GameDetailsPage: React.FC = () => {
 
         const platformResponse = await HandheldDatabaseService.fetchPlatform(platformKey!);
         setPlatformDetails(platformResponse);
-
-        const gameMarkdown = await HandheldDatabaseService.fetchGameMarkdown(platformKey!, systemKey!, gameKey!);
-
-        const overviewMarkdown = await HandheldDatabaseService.fetchGameOverview(gameKey!);
-
-        const fullMarkdown = gameMarkdown.replace("%game_overview%", overviewMarkdown || 'Help us to find a great overview!');
-        const converter = new showdown.Converter();
-        setGameContent(converter.makeHtml(fullMarkdown));
       } catch (error) {
         console.error('Error fetching game details:', error);
       } finally {
@@ -38,6 +49,25 @@ const GameDetailsPage: React.FC = () => {
 
     fetchGameDetails();
   }, [platformKey, systemKey, gameKey]);
+
+  useEffect(() => {
+    const fetchGameMarkdown = async () => {
+      try {
+        setIsReviewLoading(true);
+        const gameMarkdown = await HandheldDatabaseService.fetchGameMarkdown(platformKey!, systemKey!, gameKey!, tester!);
+        const converter = new showdown.Converter();
+        setGameContent(converter.makeHtml(gameMarkdown));
+      } catch (error) {
+        console.error('Error fetching game content:', error);
+      } finally {
+        setIsReviewLoading(false);
+      }
+    };
+
+    if (tester) {
+      fetchGameMarkdown();
+    }
+  }, [platformKey, systemKey, gameKey, tester]);
 
   if (isLoading) {
     return (
@@ -79,9 +109,28 @@ const GameDetailsPage: React.FC = () => {
                       </div>
                     </Col>
                     <Col lg={12}>
-                      <p dangerouslySetInnerHTML={{ __html: gameContent }}></p>
+                      <p dangerouslySetInnerHTML={{ __html: gameOverview }}></p>
                     </Col>
                   </Row>
+                  <h2>Reviews</h2>
+                  <Accordion>
+                    {gameDetails?.testers?.map((tester: string, i: number) => (
+                      <Accordion.Item key={i} eventKey={i.toString()} onClick={() => setTester(tester)}>
+                        <Accordion.Header className="review-header">
+                          {tester}
+                        </Accordion.Header>
+                        <Accordion.Body>
+                          {isReviewLoading ? (
+                            <Spinner animation="border" />
+                          ) : (
+                            <ul style={{textAlign: 'left'}}>
+                              <p dangerouslySetInnerHTML={{ __html: gameContent }}></p>
+                            </ul>
+                          )}
+                        </Accordion.Body>
+                      </Accordion.Item>
+                    ))}
+                  </Accordion>
                 </div>
               </Col>
             </Row>

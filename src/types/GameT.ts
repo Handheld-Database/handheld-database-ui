@@ -5,8 +5,11 @@ type Game = {
 }
 
 type GameDetails = {
-    name: string;
-    rank: string;
+    name: string
+    key: string
+    rank_numeric: number
+    rank: string
+    testers: string[]
 }
 
 export type { Game, GameDetails }
